@@ -1,0 +1,28 @@
+# Android Studio
+# =================
+*.apk
+*.aab
+*.so
+*.jar
+*.keystore
+/android-app/build/
+/android-app/app/build/
+/android-app/.gradle/
+/android-app/.idea/
+/android-app/local.properties
+/android-app/captures/
+
+# Python
+# =================
+__pycache__/
+*.pyc
+.env
+venv/
+env/
+*.egg-info/
+dist/
+
+# Operating System Files
+# =================
+.DS_Store
+Thumbs.db
