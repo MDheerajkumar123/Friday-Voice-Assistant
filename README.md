@@ -1,127 +1,137 @@
-Friday: A Conversational Voice Assistant 🤖
+# Friday: A Conversational Voice Assistant
 
-Meet Friday, your personal voice assistant built from the ground up, running on your Android device. More than just a simple command-follower, Friday is powered by modern NLP models and a custom wake-word engine to help you with everyday tasks, completely hands-free.
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+![Python](https://img.shields.io/badge/Python-3.10-blue.svg?logo=python&style=flat-square)
+![Java](https://img.shields.io/badge/Java-Android-orange.svg?logo=java&style=flat-square)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi&style=flat-square)
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker&style=flat-square)
+![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Transformers-f9a825?logo=huggingface&style=flat-square)
+![Picovoice](https://img.shields.io/badge/Picovoice-Porcupine-6C47FF?style=flat-square)
+![OpenWeatherMap](https://img.shields.io/badge/API-OpenWeatherMap-0077be?style=flat-square)
+![G-News](https://img.shields.io/badge/API-G--News-34a853?style=flat-square)
+![OkHttp](https://img.shields.io/badge/OkHttp-Networking-2C3E50?style=flat-square)
+![Lottie](https://img.shields.io/badge/Lottie-Animations-00BFFF?style=flat-square)
 
-This project combines a native Android frontend with a powerful Python backend hosted on Hugging Face, creating a seamless and responsive AI experience.
+> Your powerful, hands-free AI assistant for Android, powered by NLP and custom wake-word technology.
 
-✨ Key Features
+Friday is a conversational voice assistant for Android devices, combining a native Java client and a Python backend (FastAPI, Docker, Hugging Face Spaces). Friday enables real-time, natural voice interaction, smart automation (calls, reminders, apps, news, weather), and multi-modal responses—all with privacy and extensibility in mind.
 
-Custom Wake-Word: Say "Hello Friday" to activate the assistant, powered by the highly efficient Porcupine SDK.
+---
 
-Real-time Voice Interaction: Have a natural, back-and-forth conversation with real-time audio processing.
+## Table of Contents
+- [Background](#background)
+- [Install](#install)
+- [Usage](#usage)
+- [Generator](#generator)
+- [Badge](#badge)
+- [Example Readmes](#example-readmes)
+- [Related Efforts](#related-efforts)
+- [Maintainers](#maintainers)
+- [Contributing](#contributing)
+- [License](#license)
 
-Smart Task Automation:
+---
 
-📞 Make Calls: "Call Mom"
+## Background
 
-🚀 Launch Apps: "Open YouTube"
+This project started to create a fully open and extensible personal assistant for Android, inspired by classic AI assistants but powered by modern NLP and cloud deployment. The goal is to provide a privacy-friendly, feature-rich, and developer-friendly base for conversational AI on mobile.
 
-⏰ Set Reminders: "Remind me to buy groceries at 7 PM"
+---
 
-📰 Get News & Weather: "What's the latest news?" or "What's the weather like in Nandyala?"
+## Install
 
-🌐 Browse the Web: "Open https://www.google.com/search?q=Google.com"
+### Backend (Hugging Face Space)
 
-Multi-Modal Responses: Get answers in both text and voice.
+1. **Fork this repository** to your own GitHub account.
+2. **Get API keys** for:
+   - [OpenWeatherMap](https://openweathermap.org/) (weather)
+   - [G-News](https://gnews.io/) (news)
+3. **Create a Hugging Face Space**:
+   - Go to your Hugging Face profile → “New Space” → Docker SDK → Blank template.
+   - Link to your fork of this repo.
+4. **Add secrets** in Space settings:
+   ```
+   GNEWS_API_KEY = your_gnews_key
+   OPENWEATHER_API_KEY = your_openweathermap_key
+   ```
+5. **Deploy**: The Space will build and start automatically. Copy the public Space URL.
 
-Powered by Transformers: Utilizes Hugging Face models for natural language understanding and intent recognition.
+### Android App
 
-🏗️ Architecture
+1. **Clone your fork** and open the Android project in Android Studio.
+2. **Get a free Porcupine Access Key** from [Picovoice Console](https://picovoice.ai/console/).
+3. **Create a `local.properties` file** in the root of the Android project:
+   ```
+   HF_BACKEND_URL="https://your-username-your-space-name.hf.space/process"
+   PORCUPINE_ACCESS_KEY="your_picovoice_key"
+   ```
+4. **Build and run** the app (sync Gradle if needed).
 
-This project uses a modern client-server architecture to deliver a fast and intelligent experience.
+---
 
-Android App (Client): The native Android application continuously listens for the "Hello Friday" wake-word on-device.
+## Usage
 
-API Backend (Server): Once activated, the app streams audio to a FastAPI backend hosted on Hugging Face Spaces.
+- Say **“Hello Friday”** to activate.
+- Try commands such as:
+  - “Call Mom”
+  - “Open YouTube”
+  - “Remind me to buy groceries at 7 PM”
+  - “What’s the latest news?”
+  - “What’s the weather like in Nandyala?”
+  - “Open https://www.google.com/search?q=Google.com”
 
-NLP Processing: The backend uses Hugging Face Transformers to understand the user's intent, gathers information from external APIs (like G-News and OpenWeatherMap), and sends a structured response back.
+Friday responds with both text and speech for a natural, hands-free experience.
 
-Response: The Android app receives the response and presents it to the user through both text on the screen and a generated voice.
+---
 
-🛠️ Tech Stack
+## Generator
 
-A look at the technologies that bring Friday to life:
+Looking to start your own standard-compliant README? Use [generator-standard-readme](https://github.com/RichardLitt/generator-standard-readme):
 
-Frontend (Android App)
-Language: Java
+```sh
+npx generator-standard-readme
+```
 
-IDE: Android Studio
+---
 
-Wake-Word Engine: Picovoice Porcupine SDK
+## Badge
 
-UI: XML, Lottie for animations
+Show off your standard-readme compliance:
 
-Networking: OkHttp
+```markdown
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+```
 
-Backend (Hugging Face Space)
+---
 
-Framework: FastAPI
+## Example Readmes
 
-Language: Python
+- [This README itself](https://github.com/MDheerajkumar123/Friday-Voice-Assistant/blob/main/README.md)
+- [standard-readme example](https://github.com/RichardLitt/standard-readme/blob/master/example-readmes/)
 
-NLP: Hugging Face Transformers
+---
 
-Deployment: Docker, Hugging Face Spaces
+## Related Efforts
 
-APIs: G-News, OpenWeatherMap
+- [standard-readme](https://github.com/RichardLitt/standard-readme)
+- [generator-standard-readme](https://github.com/RichardLitt/generator-standard-readme)
 
-🚀 Getting Started: A Guide for Developers
+---
 
-This guide will walk you through deploying your own instance of the backend and connecting the Android app to it.
+## Maintainers
 
-Part 1: Deploying the Backend
+- [MDheerajkumar123](https://github.com/MDheerajkumar123) - creator, lead maintainer
 
-Fork this Repository: Start by forking this project to your own GitHub account.
+---
 
-Obtain API Keys: You'll need to get your own free API keys from the following services:
+## Contributing
 
-OpenWeatherMap (for weather data)
+Contributions are welcome! Please open an issue or pull request to discuss improvements or new features. For major changes, open an issue first to discuss your proposal.
 
-G-News (for news headlines)
+---
 
-Create a Hugging Face Space:
+## License
 
-Go to your Hugging Face profile and click New Space.
+MIT © 2025 MDheerajkumar123
 
-Give it a name and select the Docker SDK. Choose the "Blank" template.
-
-After creating the Space, link it to the GitHub repository you forked.
-
-Add Secrets:
-
-In your new Space's Settings, scroll down to Repository secrets.
-
-Add your API keys here. This keeps them secure.
-
-GNEWS_API_KEY = your_gnews_key_here
-
-OPENWEATHER_API_KEY = your_openweathermap_key_here
-
-Deploy: Your Space will automatically build and deploy. Once it's running, copy your Space's public URL (e.g., https://your-username-your-space-name.hf.space).
-
-Part 2: Setting Up the Android App
-Open the project in Android Studio from your forked repository.
-
-Obtain Porcupine Access Key: Get your own free Access Key from the Picovoice Console.
-
-Create local.properties file: In the root directory of the Android project, create a file named local.properties.
-
-Add your configuration: Paste your new backend URL and your Porcupine key into this file.
-
-Properties
-
-# The URL of YOUR new Hugging Face Space deployment
-HF_BACKEND_URL="paste_your_new_hugging_face_url_here/process"
-
-# Your private access key from Picovoice Console
-PORCUPINE_ACCESS_KEY="paste_your_picovoice_access_key_here"
-Build the App: Sync Gradle and run the project. The app will now be connected to your own personal backend instance.
-
-🙏 Acknowledgements
-This project wouldn't be possible without the amazing services and tools provided by:
-
-Hugging Face for the incredible NLP models and hosting.
-
-Picovoice for the on-device Porcupine wake-word engine.
-
-OpenWeatherMap and G-News for their powerful and easy-to-use APIs.
+See [LICENSE](LICENSE) for details.
